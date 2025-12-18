@@ -6,6 +6,7 @@ interface photoType {
 }
 
 export default function photoType({ setActiveType, setClick }: photoType) {
+  // type 데이터들
   const type = ["Random", "Husky", "Beagle", "Shiba"];
   const typeItem = type.map((value) => (
     <li
