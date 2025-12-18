@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchImage } from "./fetchImage";
 import Packery from "packery";
 import imagesLoaded from "imagesloaded";
+import "./photo.css";
 
 interface PhotoType {
   activeType: string | null; // 이미지 변경 타입
@@ -15,6 +16,7 @@ export default function Photo({ activeType, click }: PhotoType) {
   const [photos, setPhotos] = useState<string[]>([]); // 사진 리스트
   const pckryBox = useRef<HTMLDivElement | null>(null); // pckry 라이브러리 적용 El
   const [imgLoad, setImgLoad] = useState(0); // 이미지 로딩 체크
+  const imgCenterIndex = Math.floor(photos.length / 2); //이미지 배열 중간 값 (다른 강아지 추천 탭에 사용)
 
   useEffect(() => {
     // 이미지 정보 가져오기
@@ -71,17 +73,41 @@ export default function Photo({ activeType, click }: PhotoType) {
   }, [photos]);
 
   return (
-    <div style={{ backgroundColor: "lightgray" }}>
+    <div className="photo">
       {/* [8. click 변수는 버튼 클릭시 값 증가, click 변수값이 증가 후 이미지 로드 및 배치가 완료되면 imgLoad값이 증가함
           이로써 if문으로 서로 수치를 비교하여 배치가 끝난 타이밍을 확인이 가능해짐]
           (imgLoad에 -2를 하는 이유는 setImgLoad 함수가 들어있는 useEffet에서 시작시 무조건 2번 호출되기 때문에 기본적으로 2의 값을 가지고 시작해서 그럼)
           */}
-      <div ref={pckryBox} style={{ visibility: click === imgLoad - 2 ? "visible" : "hidden" }}>
+      <div
+        ref={pckryBox}
+        style={{
+          visibility: click === imgLoad - 2 ? "visible" : "hidden",
+          backgroundColor: "lightgray",
+        }}
+      >
         {/* 문자열 배열 기반으로 img 태그 생성 */}
         {/* [4. 변수 photos의 데이터를 기반으로 map을 돌려서 img태그를 생성함] */}
-        {photos.map((value: string, index: number) => (
-          <img key={index} src={value} alt={`Random dom img ${index}`} className="images" style={{ maxWidth: "25%" }} />
-        ))}
+        {photos.map((value: string, index: number) => {
+          // 다른 강아지 추천 창
+          if (index === imgCenterIndex) {
+            return (
+              <div
+                key={index}
+                className="images"
+                style={{
+                  backgroundColor: "lightgreen",
+                }}
+              >
+                이런 강아지는 어떤가요? (여기 컴포넌트 만들기)
+              </div>
+            );
+          }
+
+          // 일반 강아지 사진 표현
+          else {
+            return <img key={index} src={value} alt={`Random dom img ${index}`} className="images" />;
+          }
+        })}
       </div>
       <div>이미지 누르기 전값 : {imgLoad}</div>
       <div>이미지 누른 값 : {click}</div>
