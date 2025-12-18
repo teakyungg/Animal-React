@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Photo from "./component/photo/photo";
-import PhotoType from "./component/photoType/photoType";
+import Photo from "./component/photo/Photo";
+import PhotoType from "./component/photoType/PhotoType";
 
 function App() {
   const [activeType, setActiveType] = useState<string | null>(null);
