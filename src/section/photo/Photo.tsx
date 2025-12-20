@@ -10,9 +10,9 @@ export default function Photo() {
   const activeType = clickData((state) => state.activeType); // 현재 강아지 품종
   const click = clickData((state) => state.click); // 클릭 횟수
 
+  const pckryBox = useRef<HTMLDivElement | null>(null); // pckry 라이브러리 적용 요소
   const [photos, setPhotos] = useState<string[]>([]); // 사진 리스트
-  const pckryBox = useRef<HTMLDivElement | null>(null); // pckry 라이브러리 적용 El
-  const [imgLoad, setImgLoad] = useState(false); // 이미지 로딩 체크
+  const [imgLoad, setImgLoad] = useState(false); // 이미지 로딩 완료 체크
   const imgCenterIndex = Math.floor(photos.length / 2); //이미지 배열 중간 값 (다른 강아지 추천 탭에 사용)
 
   useEffect(() => {
