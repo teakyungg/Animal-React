@@ -1,0 +1,9 @@
+.photoType {
+  padding: 30px 0 30px 50px;
+  border-bottom: 1px solid black;
+
+  .typeBox {
+    display: flex;
+    gap: 20px;
+  }
+}
