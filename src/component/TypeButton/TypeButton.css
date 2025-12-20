@@ -1,0 +1,13 @@
+.typeButton {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 16px;
+  color: black;
+  transition: 0.25s background-color, 0.25s color;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
