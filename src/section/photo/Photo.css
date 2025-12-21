@@ -1,5 +1,6 @@
 .photo {
   padding: 20px;
+  position: relative;
 
   --gap: 64px;
   --colums: 5;
@@ -8,6 +9,19 @@
   .images {
     width: calc((100% - var(--gap)) / var(--colums));
     border-radius: 16px;
+  }
+
+  .loading {
+    position: absolute;
+    background-color: lightgray;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

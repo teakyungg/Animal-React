@@ -29,12 +29,12 @@ export default function Photo() {
       }
     }
     loadImage();
-  }, [click]);
+  }, [click]); // 클릭 감지시 실행
 
   useEffect(() => {
-    if (!pckryBox.current) return; // packery 라이브러리 입력박스 없다면 리턴
     if (photos.length <= 0) return; // 현재 사진 갯수 없다면 리턴
 
+    // 항상 이미지가 새롭게 만들어지기에 새로운 객체를 생성해야한다.
     const packery = new Packery(pckryBox.current, {
       // options
       itemSelector: ".images",
@@ -52,25 +52,24 @@ export default function Photo() {
     return () => {
       packery.destroy();
     };
-  }, [photos]);
-
-  const photoEl = photos.map((value: string, index: number) => {
-    // 다른 강아지 추천 창
-    if (index === imgCenterIndex) {
-      return <RecommendedTab key={"RecommendedTab"} />;
-    }
-
-    // 일반 강아지 사진 표현
-    else {
-      return <img key={index} src={value} alt={`Random dom img ${index}`} className="images" />;
-    }
-  });
+  }, [photos]); // 새로운 이미지 정보가 들어왔을때 실행
 
   return (
     <div className="photo">
       <div ref={pckryBox} style={{ visibility: imgLoad ? "visible" : "hidden" }}>
-        {photoEl}
+        {photos.map((value: string, index: number) => {
+          // 다른 강아지 추천 창
+          if (index === imgCenterIndex) {
+            return <RecommendedTab key={"RecommendedTab"} />;
+          }
+
+          // 일반 강아지 사진 표현
+          else {
+            return <img key={index} src={value} alt={`Random dom img ${index}`} className="images" />;
+          }
+        })}
       </div>
+      {!imgLoad && <div className="loading">로딩중...</div>}
     </div>
   );
 }
