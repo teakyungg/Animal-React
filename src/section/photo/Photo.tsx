@@ -5,6 +5,7 @@ import imagesLoaded from "imagesloaded";
 import "./photo.css";
 import RecommendedTab from "./component/RecommendedTab/RecommendedTab";
 import userData from "../../userData";
+import { ScaleLoader } from "react-spinners";
 
 export default function Photo() {
   const activeType = userData((state) => state.activeType); // 현재 강아지 품종
@@ -69,7 +70,11 @@ export default function Photo() {
           }
         })}
       </div>
-      {!imgLoad && <div className="loading">로딩중...</div>}
+      {!imgLoad && (
+        <div className="loading">
+          <ScaleLoader color="#565656" />
+        </div>
+      )}
     </div>
   );
 }
