@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4"/>
+  <!-- toes -->
+  <circle cx="22" cy="25" r="4.2" fill="currentColor"/>
+  <circle cx="30" cy="21" r="4.2" fill="currentColor"/>
+  <circle cx="38" cy="21" r="4.2" fill="currentColor"/>
+  <circle cx="46" cy="25" r="4.2" fill="currentColor"/>
+  <!-- pad -->
+  <path
+    d="M32 30c-8 0-14 5.4-14 12.2 0 5.4 4.4 10 14 10s14-4.6 14-10C46 35.4 40 30 32 30Z"
+    fill="currentColor"
+  />
+</svg>
