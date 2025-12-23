@@ -9,8 +9,10 @@ interface TypeItemType {
 // 클릭한 개의 품종과, 클릭횟수를 증가시키는 컴포넌트
 export function TypeButton({ children, onClick }: TypeItemType) {
   return (
-    <button className="typeButton" onClick={onClick}>
-      {children}
+    <button className="typeButton">
+      <span className="button_top" onClick={onClick}>
+        {children}
+      </span>
     </button>
   );
 }
