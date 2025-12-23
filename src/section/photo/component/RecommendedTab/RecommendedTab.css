@@ -3,6 +3,9 @@
   border: 2px solid lightgray;
   position: relative;
 
+  --basic-font-size: 16px;
+  font-size: var(--basic-font-size);
+
   > * {
     position: absolute;
     left: 15px;
@@ -12,7 +15,7 @@
     top: 30px;
 
     font-weight: bold;
-    font-size: 30px;
+    font-size: calc(var(--basic-font-size) + 10px);
   }
 
   .sub-title {
@@ -27,5 +30,24 @@
     flex-wrap: wrap;
 
     gap: 10px;
+  }
+}
+
+/* 조금 큰 테블릿일 때 */
+@media (max-width: 1103px) {
+  .RecommendedTab {
+    --basic-font-size: 14px;
+  }
+}
+
+@media (max-width: 886px) {
+  .RecommendedTab {
+    --basic-font-size: 13px;
+  }
+}
+
+@media (max-width: 670px) {
+  .RecommendedTab {
+    --basic-font-size: 12px;
   }
 }
