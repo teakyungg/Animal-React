@@ -33,3 +33,22 @@
     transform: translateY(0);
   }
 }
+
+/* 조금 큰 테블릿일 때 */
+@media (max-width: 1103px) {
+  .typeButton {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 886px) {
+  .typeButton {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 670px) {
+  .typeButton {
+    font-size: 12px;
+  }
+}
