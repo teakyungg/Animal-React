@@ -1,0 +1,45 @@
+header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+
+  .inner {
+    padding: 20px;
+    background: rgb(236, 236, 236);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    .logo {
+      width: 100px;
+      aspect-ratio: 1/1;
+    }
+
+    input {
+      width: 80%;
+      padding: 20px 10px;
+      border-radius: 30px;
+      border: 2px solid rgb(107, 107, 107);
+      font-size: 18px;
+    }
+  }
+
+  .photoType {
+    position: absolute;
+    left: 0;
+
+    z-index: -1;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    width: 100%;
+    padding: 20px;
+    background: rgb(236, 236, 236);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+}
