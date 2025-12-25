@@ -1,10 +1,10 @@
-import Photo from "./section/photo/Photo";
-import PhotoType from "./section/photoType/PhotoType";
+import { Header } from "./section/Header/Header";
+import Photo from "./section/Photo/Photo";
 
 function App() {
   return (
     <>
-      <PhotoType />
+      <Header />
       <Photo />
     </>
   );
