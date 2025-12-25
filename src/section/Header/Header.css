@@ -2,15 +2,18 @@ header {
   position: fixed;
   z-index: 999;
   width: 100%;
+  height: var(--header-height);
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
   .inner {
+    height: 100%;
     padding: 20px;
-    background: rgb(236, 236, 236);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
     display: flex;
     gap: 20px;
+    justify-content: space-between;
     align-items: center;
 
     .logo {
@@ -19,11 +22,11 @@ header {
     }
 
     input {
-      width: 80%;
-      padding: 20px 10px;
+      width: 100%;
+      padding: 15px 10px 15px 30px;
       border-radius: 30px;
       border: 2px solid rgb(107, 107, 107);
-      font-size: 18px;
+      font-size: inherit;
     }
   }
 
@@ -41,5 +44,24 @@ header {
     background: rgb(236, 236, 236);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
       rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 1103px) {
+  header .inner .logo {
+    width: 84px;
+  }
+}
+
+@media (max-width: 886px) {
+  header .inner .logo {
+    width: 72px;
+  }
+}
+
+@media (max-width: 670px) {
+  header .inner .logo {
+    width: 60px;
   }
 }
