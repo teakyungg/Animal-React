@@ -23,6 +23,7 @@ export function Header() {
     setButtonData(found);
   };
 
+  // 강아지 품좀 데이터 (한번만 가져오기)
   useEffect(() => {
     async function setType() {
       const res = await fetch(`${serverUrl}/breeds/list/all`);
@@ -31,6 +32,21 @@ export function Header() {
     }
     setType();
   }, []);
+
+  const buttonItem = buttonData.map((value) => (
+    <TypeButton
+      key={value}
+      onClick={() => {
+        selectType(value);
+        setButtonData([]);
+        if (inputRef.current) {
+          inputRef.current.value = "";
+        }
+      }}
+    >
+      {value}
+    </TypeButton>
+  ));
 
   return (
     <header>
@@ -43,26 +59,21 @@ export function Header() {
           placeholder="원하는 품종을 검색해주세요"
           onChange={(e) => searchType(e.target.value)}
         />
+
+        <TypeButton
+          onClick={() => {
+            selectType("Random");
+            setButtonData([]);
+            if (inputRef.current) {
+              inputRef.current.value = "";
+            }
+          }}
+        >
+          Random
+        </TypeButton>
       </div>
 
-      {buttonData.length > 0 && (
-        <div className="photoType">
-          {buttonData.map((value) => (
-            <TypeButton
-              key={value}
-              onClick={() => {
-                selectType(value);
-                setButtonData([]);
-                if (inputRef.current) {
-                  inputRef.current.value = "";
-                }
-              }}
-            >
-              {value}
-            </TypeButton>
-          ))}
-        </div>
-      )}
+      {buttonData.length > 0 && <div className="photoType">{buttonItem}</div>}
     </header>
   );
 }
