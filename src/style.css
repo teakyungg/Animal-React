@@ -1,5 +1,5 @@
 :root {
-  --header-height: 150px;
+  --header-height: 150px; /* header 높이 */
 }
 
 * {
@@ -7,4 +7,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* 전체 반응형 */
+@media (max-width: 1103px) {
+  body {
+    font-size: 14px;
+    --header-height: 120px;
+  }
+}
+
+@media (max-width: 886px) {
+  body {
+    font-size: 13px;
+    --header-height: 96px;
+  }
+}
+
+@media (max-width: 670px) {
+  body {
+    font-size: 12px;
+    --header-height: 80px;
+  }
 }
