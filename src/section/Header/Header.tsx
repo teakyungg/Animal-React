@@ -10,6 +10,7 @@ export function Header() {
 
   const inputRef = useRef<HTMLInputElement>(null); // input 초기화용
   const selectType = userData((state) => state.selectType); // 이미지 변경시 실행할 함수
+  const setDogType = userData((state) => state.setDogType); // 강아지 품종 전역 변수 저장 함수
 
   // 검색 조건 탐색 로직
   const searchType = (input: string) => {
@@ -29,6 +30,7 @@ export function Header() {
       const res = await fetch(`${serverUrl}/breeds/list/all`);
       const data = await res.json();
       dogTypes.current = Object.keys(data.message);
+      setDogType(dogTypes.current);
     }
     setType();
   }, []);
