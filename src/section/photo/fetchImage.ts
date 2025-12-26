@@ -1,7 +1,7 @@
 // 이미지 데이터 정보 서버에 요청
 export async function fetchImage(type: string | null) {
   const serverUrl = import.meta.env.VITE_APP_SERVER_URL; // 서버 주소
-  const imageLength = 10;
+  const imageLength = 30;
   let res;
 
   // 입력값이 없다면 기본으로 랜덤 이미지를 가져옮
