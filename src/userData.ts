@@ -8,14 +8,16 @@ type userDataType = {
 
   selectType: (type: string) => void; // 이미지 변경시 호출할 함수
   finishImageLoad: () => void; // 이미지 로딩 완료시 호출할 함수
+  setDogType: (types: string[]) => void;
 };
 
 const userData = create<userDataType>((set) => ({
-  allDogType: ["Random", "Husky", "Beagle", "Shiba"],
+  allDogType: [],
   imgLoad: false,
   activeType: "Random",
   click: 0,
 
+  setDogType: (type) => set({ allDogType: type }),
   selectType: (type) => set((state) => ({ imgLoad: false, activeType: type, click: state.click + 1 })),
   finishImageLoad: () => set({ imgLoad: true }),
 }));
