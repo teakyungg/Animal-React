@@ -62,14 +62,14 @@ export default function Photo() {
 
   return (
     <div className="photo">
-      <div ref={pckryBox} style={{ visibility: imgLoad ? "visible" : "hidden" }}>
-        {photoItem}
-      </div>
       {!imgLoad && (
         <div className="loading">
           <ScaleLoader color="#565656" />
         </div>
       )}
+      <div ref={pckryBox} style={{ visibility: imgLoad ? "visible" : "hidden" }}>
+        {photoItem}
+      </div>
     </div>
   );
 }
