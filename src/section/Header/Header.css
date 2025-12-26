@@ -23,7 +23,7 @@ header {
 
     input {
       width: 100%;
-      padding: 15px 10px 15px 30px;
+      padding: 15px 10px 15px 20px;
       border-radius: 30px;
       border: 2px solid rgb(107, 107, 107);
       font-size: inherit;
@@ -52,11 +52,19 @@ header {
   header .inner .logo {
     width: 84px;
   }
+
+  header .inner input {
+    padding-left: 15px;
+  }
 }
 
 @media (max-width: 886px) {
   header .inner .logo {
     width: 72px;
+  }
+
+  header .inner input {
+    padding-left: 10px;
   }
 }
 

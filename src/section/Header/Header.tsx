@@ -55,12 +55,7 @@ export function Header() {
       <div className="inner">
         <img src="/logo.svg" alt="animal logo" className="logo" />
 
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder="원하는 품종을 검색해주세요"
-          onChange={(e) => searchType(e.target.value)}
-        />
+        <input ref={inputRef} type="text" placeholder="품종 검색" onChange={(e) => searchType(e.target.value)} />
 
         <TypeButton
           onClick={() => {
