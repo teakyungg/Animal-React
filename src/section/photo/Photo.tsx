@@ -55,20 +55,15 @@ export default function Photo() {
     };
   }, [photos]); // 새로운 이미지 정보가 들어왔을때 실행
 
+  const photoItem = photos.map((value: string, index: number) => {
+    return <img key={index} src={value} alt={`Random dom img ${index}`} className="images" />;
+  });
+  photoItem.splice(imgCenterIndex, 0, <RecommendedTab key={"RecommendedTab"} />);
+
   return (
     <div className="photo">
       <div ref={pckryBox} style={{ visibility: imgLoad ? "visible" : "hidden" }}>
-        {photos.map((value: string, index: number) => {
-          // 다른 강아지 추천 창
-          if (index === imgCenterIndex) {
-            return <RecommendedTab key={"RecommendedTab"} />;
-          }
-
-          // 일반 강아지 사진 표현
-          else {
-            return <img key={index} src={value} alt={`Random dom img ${index}`} className="images" />;
-          }
-        })}
+        {photoItem}
       </div>
       {!imgLoad && (
         <div className="loading">
