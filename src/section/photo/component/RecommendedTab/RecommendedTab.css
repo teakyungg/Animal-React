@@ -1,31 +1,16 @@
 .RecommendedTab {
-  height: 300px;
   border: 2px solid lightgray;
-  position: relative;
-
-  > * {
-    position: absolute;
-    left: 15px;
-  }
+  padding: 10px;
 
   .title {
-    top: 30px;
-
     font-weight: bold;
     font-size: calc(1em + 10px);
   }
 
-  .sub-title {
-    top: 10px;
-  }
-
   .types {
-    top: 80px;
-    right: 15px;
-
+    padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
-
     gap: 10px;
   }
 }
