@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchImage } from "./fetchImage";
 import Packery from "packery";
 import imagesLoaded from "imagesloaded";
-import "./photo.css";
+import "./Photo.css";
 import RecommendedTab from "./component/RecommendedTab/RecommendedTab";
 import userData from "../../userData";
 import { ScaleLoader } from "react-spinners";
