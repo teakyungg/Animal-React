@@ -63,7 +63,7 @@ export default function Photo() {
   photoItem.splice(imgCenterIndex, 0, <RecommendedTab key={"RecommendedTab"} />);
 
   return (
-    <div className="photo">
+    <div className="photo" role="main">
       {!imgLoad && (
         <div className="loading">
           <ScaleLoader color="#565656" />
