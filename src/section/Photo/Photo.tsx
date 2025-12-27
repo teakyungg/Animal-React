@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { fetchImage } from "./fetchImage";
 import Packery from "packery";
 import imagesLoaded from "imagesloaded";
@@ -32,7 +32,7 @@ export default function Photo() {
     loadImage();
   }, [click]); // 클릭 감지시 실행
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (photos.length <= 0) return; // 현재 사진 갯수 없다면 리턴
 
     // 항상 이미지가 새롭게 만들어지기에 새로운 객체를 생성해야한다.
@@ -40,6 +40,8 @@ export default function Photo() {
       // options
       itemSelector: ".images",
       gutter: 16,
+      transitionDuration: 0,
+      stagger: 0,
     });
 
     imagesLoaded(pckryBox.current, () => {
@@ -67,7 +69,7 @@ export default function Photo() {
           <ScaleLoader color="#565656" />
         </div>
       )}
-      <div ref={pckryBox} style={{ visibility: imgLoad ? "visible" : "hidden" }}>
+      <div ref={pckryBox} style={{ opacity: imgLoad ? 1 : 0 }}>
         {photoItem}
       </div>
     </div>
